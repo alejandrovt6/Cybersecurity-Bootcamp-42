@@ -8,15 +8,16 @@ ft_otp.py is a Python script that generates a One-Time Password (OTP) based on t
 * Libraries: hmac, base64, hashlib, struct, time, re, argparse, cryptography
 
 ## 🛠️ Usage
-**To generate a new key and store it encrypted, run the command:** <br>
-* ./ft_otp.py -g [file_name] 
+```
+To generate a new key and store it encrypted, run the command:
+./ft_otp.py -g [file_name] 
 
-**To generate a time-based OTP using a stored key, run the following command:** <br>
-* ./ft_otp.py -k [file_name] 
+To generate a time-based OTP using a stored key, run the following command: 
+./ft_otp.py -k [file_name] 
 
-**You can also provide the file name as an argument, like this:** <br>
-* ./ft_otp.py [file_name]
-
+You can also provide the file name as an argument, like this:
+./ft_otp.py [file_name]
+```
 ## 💡 Examples
 **Generating a new key and storing it encrypted:**<br>
 * ./ft_otp.py -g my_key.hex <br>
@@ -33,4 +34,4 @@ ft_otp.py is a Python script that generates a One-Time Password (OTP) based on t
 **Generating a time-based OTP using a stored key with a provided file name:**
 * ./ft_otp.py my_key.hex <br>
 * fql5hk3i4a5v <br>
-* 965901 <br>
+* 965901
