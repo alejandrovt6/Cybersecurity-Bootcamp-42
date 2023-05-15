@@ -12,20 +12,24 @@ The program was created in Python. Files will encrypt with Fernet library. (Simm
 * pathlib library
 
 ### 🛠️ Usage
-```
 Encrypt files 
+```
 python3 stokholm.py
-
+```
 Revert the infection using the encryption key
+```
 python3 stockholm.py -r master.key  
-
-Show the program version        
+```
+Show the program version
+```
 python3 stockholm.py -v  
-
-Disable screen output          
+```
+Disable screen output
+```      
 python3 stockholm.py -s
-
+```
 Show help message
+```
 python3 stokholm.py -h
 ```
 ## 📋 ⚠️ Important Note: Ethical Use of the Stockholm Ransomware Tool ⚠️

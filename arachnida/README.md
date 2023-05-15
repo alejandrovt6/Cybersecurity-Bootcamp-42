@@ -31,14 +31,17 @@ The program will download the following file extensions by default:
 * .bmp
 
 ### 💡 Examples
-```
+
 Download all images from a website:
+```
 python3 spider.py https://example.com -p ./images/
-
+```
 Download all images from a website and its linked pages:
+```
 python3 spider.py https://example.com -r -l 3 -p ./images/
-
+```
 Download all images from a local HTML file:
+```
 python3 spider.py ./index.html -p ./images/
 ```
 ### 📋 Notes
@@ -58,10 +61,12 @@ Scorpion is a Python program that downloads metadata from images. It uses the ar
 You can install Pillow libraries using pip.
 
 ### 🛠️ Usage
-```
-To run Scorpion, simply execute the script followed by the path to the image you want to analyze. You can also provide additional paths to analyze multiple images.
 
+To run Scorpion, simply execute the script followed by the path to the image you want to analyze. You can also provide additional paths to analyze multiple images.
+```
 python3 scorpion.py image1.jpg image2.png
+```
+```
 python3 scorpion.py ./folder
 ```
 ### 💡 Example
