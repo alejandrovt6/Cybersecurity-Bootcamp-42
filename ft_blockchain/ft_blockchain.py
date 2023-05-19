@@ -1,35 +1,48 @@
 # This program is not finished
 # Libraries
 import hashlib
+import time
 
 # Program
 class GeekCoinBlock:
-    # Constructor
+
     def __init__(self, previous_block_hash, transaction_list):
+        self.index = None
+        self.timestamp = None
         self.previous_block_hash = previous_block_hash
         self.transaction_list = transaction_list
         # Concatenate transactions and previous hash
         self.block_data = f"{' - '.join(transaction_list)} - {previous_block_hash}"
         # self.block_hash = hashlib.sha256(self.block_data.encode()).hexdigest()
         self.block_hash = None
+        self.proof = None
 
     def mine_block(self, difficulty):
         nonce = 0
         # Difficulty test work
-        prefix = "0" * difficulty # Must be 4242
+        prefix = "42"
         while True:
             # Calculate block_data hash
             block_data = f"{self.block_data}-{nonce}"
             block_hash = hashlib.sha256(block_data.encode()).hexdigest()
-            # Verify difficulty
-            if block_hash[:difficulty] == prefix:
-            # if block_hash[:difficulty] == "0" * difficulty and block_hash[-2:] == prefix:
+            # Verify difficulty and prefix
+            if block_hash[:difficulty] == "0" * difficulty and block_hash[-2:] == prefix:
                 self.block_hash = block_hash
+                self.proof = nonce
                 break
             nonce += 1
 
+    def to_dict(self):
+        return {
+            'index': self.index,
+            'timestamp': self.timestamp,
+            'transactions': self.transaction_list,
+            'proof': self.proof,
+            'previous_hash': self.previous_block_hash,
+        }
+
 class Blockchain:
-    # Constructor
+    
     def __init__(self):
         self.chain = []
         self.generate_genesis_block()
@@ -37,23 +50,24 @@ class Blockchain:
     # Genesis block (the first)
     def generate_genesis_block(self):
         # Previous is 0. Add this
-        self.chain.append(GeekCoinBlock("0", ['Genesis Block'])) 
-    # Create blocks
+        self.chain.append(GeekCoinBlock("0", ['Genesis Block']))
+        # Create blocks
 
     def create_block_from_transaction(self, transaction_list, difficulty):
         # Obtain previus block
         previous_block_hash = self.last_block.block_hash
-        # Create new block
+        # Create new block and add to chain
         block = GeekCoinBlock(previous_block_hash, transaction_list)
+        block.index = len(self.chain)
+        block.timestamp = time.time()
         block.mine_block(difficulty)
         self.chain.append(block)
 
-    # Display blockchain information
+    # Display blockchain information    
     def display_chain(self):
-        for i, block in enumerate(self.chain):
-            print(f"Data {i + 1}: {block.block_data}")
-            print(f"Hash {i + 1}: {block.block_hash}\n")
-            
+        for block in self.chain:
+            print(block.to_dict())
+
     # It is a property, not a method. Return last chain
     @property
     def last_block(self):
