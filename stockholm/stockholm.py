@@ -20,11 +20,11 @@ exts = ['.123', '.3dm', '.3ds', '.3g2', '.3gp', '.602', '.7z', '.accdb', '.aes',
         '.mdb', '.mdf', '.mfd', '.mid', '.mkv', '.mml', '.mov', '.mp3', '.mp4', '.mpa', '.mpeg', '.mpg', '.msg', 
         '.msi', '.myd', '.myi', '.nef', '.odb', '.odg', '.odp', '.ods', '.odt', '.ora', '.ost', '.otg', '.otp', 
         '.ots', '.ott', '.p12', '.paq', '.pas', '.pdf', '.pem', '.php', '.pl', '.png', '.pot', '.potm', '.potx', 
-        '.ppam', '.pps', '.ppsm', '.ppsx', '.ppt', '.pptm', '.pptx', '.ps1', '.psd', '.pst', '.rar', '.raw', '.rb', 
-        '.rtf', '.sch', '.sldm', '.sldx', '.slk', '.sln', '.sql', '.sqlite', '.ss', '.ssa', '.ssb', '.sxc', '.sxd', 
-        '.sxi', '.sxm', '.sxw', '.tar', '.tbk', '.tgz', '.tif', '.tiff', '.txt', '.uop', '.uot', '.vb', '.vbs', '.vcd', 
-        '.vdi', '.vmdk', '.vmx', '.vob', '.vsd', '.vsdx', '.wav', '.wb2', '.wk1', '.wks', '.wma', '.wmv', '.xlc', '.xlm', 
-        '.xls', '.xlsb', '.xlsm', '.xlsx', '.xlt', '.xltm', '.xltx', '.xlw', '.xml', '.zip']
+        '.ppam', '.pps', '.ppsm', '.ppsx', '.ppt', '.pptm', '.pptx', '.ps1', '.psd', '.pst', '.rar', '.raw', 
+        '.rb', '.rtf', '.sch', '.sldm', '.sldx', '.slk', '.sln', '.sql', '.sqlite', '.ss', '.ssa', '.ssb', '.sxc', 
+        '.sxd', '.sxi', '.sxm', '.sxw', '.tar', '.tbk', '.tgz', '.tif', '.tiff', '.txt', '.uop', '.uot', '.vb', 
+        '.vbs', '.vcd', '.vdi', '.vmdk', '.vmx', '.vob', '.vsd', '.vsdx', '.wav', '.wb2', '.wk1', '.wks', '.wma', 
+        '.wmv', '.xlc', '.xlm', '.xls', '.xlsb', '.xlsm', '.xlsx', '.xlt', '.xltm', '.xltx', '.xlw', '.xml', '.zip']
 
 # Check files 
 def check_file(element, form):

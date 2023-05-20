@@ -1,93 +1,69 @@
 # This program is not finished
 # Libraries
-import hashlib
-import time
+import datetime, hashlib, json
+from flask import Flask, jsonify
 
 # Program
-class GeekCoinBlock:
-
-    def __init__(self, previous_block_hash, transaction_list):
-        self.index = None
-        self.timestamp = None
-        self.previous_block_hash = previous_block_hash
-        self.transaction_list = transaction_list
-        # Concatenate transactions and previous hash
-        self.block_data = f"{' - '.join(transaction_list)} - {previous_block_hash}"
-        # self.block_hash = hashlib.sha256(self.block_data.encode()).hexdigest()
-        self.block_hash = None
-        self.proof = None
-
-    def mine_block(self, difficulty):
-        nonce = 0
-        # Difficulty test work
-        prefix = "42"
-        while True:
-            # Calculate block_data hash
-            block_data = f"{self.block_data}-{nonce}"
-            block_hash = hashlib.sha256(block_data.encode()).hexdigest()
-            # Verify difficulty and prefix
-            if block_hash[:difficulty] == "0" * difficulty and block_hash[-2:] == prefix:
-                self.block_hash = block_hash
-                self.proof = nonce
-                break
-            nonce += 1
-
-    def to_dict(self):
-        return {
-            'index': self.index,
-            'timestamp': self.timestamp,
-            'transactions': self.transaction_list,
-            'proof': self.proof,
-            'previous_hash': self.previous_block_hash,
-        }
-
 class Blockchain:
-    
     def __init__(self):
         self.chain = []
-        self.generate_genesis_block()
-
-    # Genesis block (the first)
-    def generate_genesis_block(self):
-        # Previous is 0. Add this
-        self.chain.append(GeekCoinBlock("0", ['Genesis Block']))
-        # Create blocks
-
-    def create_block_from_transaction(self, transaction_list, difficulty):
-        # Obtain previus block
-        previous_block_hash = self.last_block.block_hash
-        # Create new block and add to chain
-        block = GeekCoinBlock(previous_block_hash, transaction_list)
-        block.index = len(self.chain)
-        block.timestamp = time.time()
-        block.mine_block(difficulty)
+        self.create_block(proof=1, previous_hash='0')
+    
+    def create_block(self, proof, previous_hash):
+        block = {'index':len(self.chain)+1,
+                 'timestamp':str(datetime.datetime.now()),
+                 'proof':proof,
+                 'previous_hash':previous_hash}
+        
         self.chain.append(block)
 
-    # Display blockchain information    
-    def display_chain(self):
-        for block in self.chain:
-            print(block.to_dict())
+        return block
+    
+    def get_previous_block(self):
+        
+         return self.chain[-1]
+    
+    def proof_of_work(self, previous_proof):
+        new_proof = 1
+        check_proof = False
 
-    # It is a property, not a method. Return last chain
-    @property
-    def last_block(self):
-        return self.chain[-1]
+        while check_proof is False:
+            hash_operation = hashlib.sha256(str(new_proof**2 - previous_proof**2).encode()).hexdigest
 
-# Create transactions
-t1 = "George sends 3.1 42coin to Joe"
-t2 = "Joe sends 2.5 42coin to Adam"
-t3 = "Adam sends 1.2 42coin to Bob"
-t4 = "Bob sends 0.5 42coin to Charlie"
-t5 = "Charlie sends 0.2 42coin to David"
-t6 = "David sends 0.1 42coin to Eric"
+            if hash_operation[:4] == '0000': # Dificulty
+                check_proof = True
+            else:
+                new_proof += 1
 
-# Create instance
-myblockchain = Blockchain()
+            return new_proof
+        
+    def hash(self, block):
+        encoded_block = json.dumps(block, sort_keys = True).encode()
 
-# Create blocks
-myblockchain.create_block_from_transaction([t1, t2], 4)  # Work test lvl 4
-myblockchain.create_block_from_transaction([t3, t4], 4)
-myblockchain.create_block_from_transaction([t5, t6], 4)
+        return hashlib.sha256().hexdigest()
+    
+    def is_chain_valid(self, chain):
+        previous_block = chain[0]
+        block_index = 1
 
-# Display blockchain
-myblockchain.display_chain()
+        while block_index < len(chain):
+            block = chain[block_index]
+
+            if block['previous_hash'] != self.hash(previous_block):
+                
+                return False
+            
+            previous_proof = previous_block['proof']
+            proof = block['proof']
+            hash_operation = hashlib.sha256(str(new_proof**2 - previous_proof**2).encode()).hexdigest
+
+            if hash_operation[:4] != '0000':
+
+                return False
+            
+            previous_block = block
+            block_index +=1
+
+        return True
+    
+    
