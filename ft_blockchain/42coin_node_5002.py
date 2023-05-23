@@ -145,7 +145,7 @@ def connect_node():
         return 'No node', 400
     for node in nodes:
         blockchain.add_node(node)
-    response = {'message' : 'All the nodes are now connected. The Bcoin blockchain now contains the node',
+    response = {'message' : 'All the nodes are now connected. The 42coin blockchain now contains the node',
                 'total_nodes' : list(blockchain.nodes)}
     return jsonify(response), 201
 

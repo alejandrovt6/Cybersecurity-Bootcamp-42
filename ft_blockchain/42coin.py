@@ -135,7 +135,6 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = blockchain.proof_of_work(previous_proof)
     previous_hash = blockchain.hash(previous_block)
-    # if we mine a block we can reward the bcoin. Receiver can be set who mines the block
     blockchain.add_transaction(sender = node_address, receiver = 'Alejandro', amount = 1)
     block = blockchain.create_block(proof, previous_hash)
     
@@ -200,7 +199,7 @@ def connect_node():
     # Our nodes is a set so even if it is done for all the nodes seperately it will contain only unique values
     for node in nodes:
         blockchain.add_node(node)
-    response = {'message' : 'All the nodes are now connected. The Bcoin blockchain now contains the node',
+    response = {'message' : 'All the nodes are now connected. The 42coin blockchain now contains the node',
                 'total_nodes' : list(blockchain.nodes)}
     # HTTP 201 created
     return jsonify(response), 201
