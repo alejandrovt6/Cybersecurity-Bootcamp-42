@@ -1,6 +1,7 @@
 import datetime
 import hashlib
 import json
+import time
 from flask import Flask,jsonify,request
 import requests
 from uuid import uuid4
@@ -39,7 +40,9 @@ class Blockchain:
         # Create a hash
         while check_proof is False:
             hash_operation = hashlib.sha256(str(new_proof**2 - previous_proof**2).encode()).hexdigest()
-            if hash_operation[:4]=='0000':
+            # if hash_operation[:4]=='0000':
+            if hash_operation[-4:] == '4242':
+
                 check_proof =  True
             else:
                 new_proof +=1
@@ -128,26 +131,41 @@ node_address = str(uuid4()).replace('-', '')
 blockchain=Blockchain()
 
 # Mining a block
-@app.route('/mine_block', methods = ['GET'])
+@app.route('/mine_block', methods=['GET'])
 def mine_block():
-
     previous_block = blockchain.get_previous_block()
     previous_proof = previous_block['proof']
-    proof = blockchain.proof_of_work(previous_proof)
+
+    # Start with a proof of 1
+    proof = 1
+
+    while True:
+        hash_operation = hashlib.sha256(str(proof**2 - previous_proof**2).encode()).hexdigest()
+        if hash_operation.endswith('4242'):
+            # Print the current proof and hash
+            print(f"Current Proof: {proof}")
+            print(f"Current Hash: {hash_operation}")
+            break
+
+        proof += 1
+
     previous_hash = blockchain.hash(previous_block)
-    blockchain.add_transaction(sender = node_address, receiver = 'Alejandro', amount = 1)
     block = blockchain.create_block(proof, previous_hash)
-    
-    # Return the response
-    response = {'message' : 'Congrats, you just mined a block!',
-                'index' : block['index'],
-                'timestamp' : block['timestamp'],
-                'proof' : block['proof'],
-                'previous_hash' : block['previous_hash'],
-                'transactions' : block['transactions']}
-    # Response with the JSON representation of the given arguments with an application/json mimetype(Multipurpose Internet Mail Extensions or MIME type).
+
+    response = {
+        'message': 'Congrats, you just mined a block!',
+        'index': block['index'],
+        'timestamp': block['timestamp'],
+        'proof': block['proof'],
+        'previous_hash': block['previous_hash'],
+        'transactions': block['transactions']
+    }
+
     return jsonify(response), 200
-    
+
+
+
+
 # Getting the blockchain
 @app.route('/get_chain', methods = ['GET'])
 
