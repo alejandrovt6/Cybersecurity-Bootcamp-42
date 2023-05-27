@@ -16,4 +16,4 @@ These projects have been created in the Cybersecurity Bootcamp of Málaga 42 Fun
 
 
 ------------------
-[![Visits](https://img.shields.io/github/watchers/alejandrovt6/Cybersecurity-Bootcamp-42.svg?style=social)](https://github.com/alejandrovt6/Cybersecurity-Bootcamp-42)
+[![Visits](https://badgen.net/github/visits/alejandrovt6/Cybersecurity-Bootcamp-42?icon=github)](https://github.com/alejandrovt6/Cybersecurity-Bootcamp-42)
