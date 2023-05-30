@@ -6,11 +6,6 @@ The program will rename all files in mentioned folder adding the ".ft" extension
 
 The program was created in Python. Files will encrypt with Fernet library. (Simmetric encryption).
 
-### 🔍 Requirements
-* Python 3.x or later
-* cryptogtraphy library
-* pathlib library
-
 ### 🛠️ Usage
 Encrypt files 
 ```
@@ -32,6 +27,7 @@ Show help message
 ```
 python3 stokholm.py -h
 ```
+
 ## 📋 ⚠️ Important Note: Ethical Use of the Stockholm Ransomware Tool ⚠️
 This tool, known as Stockholm, is a ransomware script designed for educational and ethical purposes only. It serves as a demonstration of ransomware techniques and should never be used maliciously or to cause harm.
 

@@ -5,13 +5,6 @@
 ### 📝 Description
 Spider is a Python program that downloads all images from a website. It uses the BeautifulSoup library to parse the HTML of the website and locate all the image tags. Then, it downloads each image to a specified directory recursively.
 
-### 🔍 Requirements
-* Python 3.x or later
-* requests library
-* beautifulsoup4 library
-
-You can install the requests and beautifulsoup4 libraries using pip.
-
 ### 🛠️ Usage
 To run Spider, navigate to the directory where the spider.py file is located and run the following command in your terminal:
 
@@ -53,12 +46,6 @@ If an image is not downloaded, it may be due to incorrect file paths or permissi
 
 ### 📝 Description
 Scorpion is a Python program that downloads metadata from images. It uses the argparse and Pillow libraries to obtain image metadata and display it in a user-friendly way.
-
-### 🔍 Requirements
-* Python 3.x or later
-* Pillow library
-
-You can install Pillow libraries using pip.
 
 ### 🛠️ Usage
 

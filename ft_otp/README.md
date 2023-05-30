@@ -1,11 +1,7 @@
-# 🔑 FT_OTP
+# 🔑 Ft_OTP
 
 ## 📝 Description
 ft_otp.py is a Python script that generates a One-Time Password (OTP) based on the Time-Based One-Time Password (TOTP) algorithm. The script can generate a new key and store it encrypted or generate a time-based OTP using a stored key.
-
-## 🔍 Requeriments
-* Python 3.x
-* Libraries: hmac, base64, hashlib, struct, time, re, argparse, cryptography
 
 ## 🛠️ Usage
 

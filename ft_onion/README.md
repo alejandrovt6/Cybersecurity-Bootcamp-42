@@ -1,4 +1,4 @@
-# 🧅 FT_ONION
+# 🧅 ft_Onion
 
 ## 📝 Mandatory Part
 
