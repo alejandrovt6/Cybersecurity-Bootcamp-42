@@ -10,14 +10,48 @@ When adding a transaction, the next block that is mined by any of the nodes will
 ### 🛠️ Usage
 Run the program 
 ```
-python3 exec.py
+python exec.py
 ```
+![Init](./imgs/1-init.png)
+
 Connect the nodes
 ```
-python3 node_connection.py
+python node_connection.py
 ```
+![Connect](./imgs/2-connect.png)
 
-* Use Postman for mine
-* Now, display the chain in the same or other node
-* Add transaction to the next block
-* Mine. You can see the reward
+Use Postman for display chain
+```
+http://127.0.0.1:{node}/chain
+```
+![Chain](./imgs/3-chain.png)
+
+Mine a block
+```
+http://127.0.0.1:{node}/mine
+```
+![Mine](./imgs/4-mine.png)
+
+Now, display the chain in the same or other node.
+```
+http://127.0.0.1:{node}/chain
+```
+![Chain](./imgs/5-chain.png)
+
+Add transaction to the next block
+```
+http://127.0.0.1:{node}/transactions/new
+```
+![Transaction](./imgs/6-newtr.png)
+
+Mine. You can see the reward
+```
+http://127.0.0.1:{node}/mine
+```
+![Reward](./imgs/7-minetr.png)
+
+Get the update chain in any block
+```
+http://127.0.0.1:{node}/replace_chain
+```
+![Reward](./imgs/8-replace.png)
