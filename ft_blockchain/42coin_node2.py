@@ -40,7 +40,6 @@ class Blockchain:
             json_obj = response.json()
 
             if isinstance(json_obj,dict):
-                print("hey")
 
                 if "length" in json_obj:
                     print(json_obj["length"])

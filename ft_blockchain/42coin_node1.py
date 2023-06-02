@@ -40,7 +40,6 @@ class Blockchain:
             json_obj = response.json()
 
             if isinstance(json_obj,dict):
-                print("hey")
 
                 if "length" in json_obj:
                     print(json_obj["length"])
@@ -67,10 +66,10 @@ class Blockchain:
             
     def create_block(self, proof, previous_hash):
         block = {'index':len(self.chain)+1,
-                 'timestamp':str(datetime.datetime.now()),
-                 'proof':proof,
-                 'previous_hash':previous_hash,
-                 'transactions':self.transactions}
+                'timestamp':str(datetime.datetime.now()),
+                'proof':proof,
+                'previous_hash':previous_hash,
+                'transactions':self.transactions}
 
         self.transactions = []
         self.chain.append(block)
@@ -127,7 +126,7 @@ class Blockchain:
             previous_block=block
             block_index +=1
         return True
-   
+
 app = Flask(__name__)
 
 node_address = str(uuid4()).replace('-','')
