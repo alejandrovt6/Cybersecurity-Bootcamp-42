@@ -1,7 +1,7 @@
 # 🖥️ Cybersecurity Bootcamp - 42 Málaga Fundación Telefónica
 
 ## 📋 Information
-These projects have been created in the Cybersecurity Bootcamp of Málaga 42 Fundación Telefónica for 10 weeks. From April 11, 2023 to June 17, 2023.
+These projects have been created in the Cybersecurity Bootcamp of Málaga 42 Fundación Telefónica for 8 weeks. From April 11, 2023 to June 2, 2023.
 
 ## 💯 MY PROGRESS 
 
@@ -13,4 +13,3 @@ These projects have been created in the Cybersecurity Bootcamp of Málaga 42 Fun
 | 04        | ft_onion | 06/05/2023 | Web in Tor Network | 125% |
 | 05        | stockholm | 15/05/2023 | Rasomware | 100% |
 | 06        | ft_blockchain | 25/05/2023 | Blockchain creation | 116% |
-| 07        | iron_dome | - | File montior | -% |

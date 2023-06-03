@@ -21,6 +21,7 @@ class Blockchain:
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
         print(parsed_url.netloc)
+    
     def replace_chain(self):
         # We will define as network the set of nodes that we have obtained
         network = self.nodes
@@ -40,7 +41,6 @@ class Blockchain:
             json_obj = response.json()
 
             if isinstance(json_obj,dict):
-                print("hey")
 
                 if "length" in json_obj:
                     print(json_obj["length"])
