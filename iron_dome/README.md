@@ -14,7 +14,7 @@ to be observed. Otherwise, all files will be monitored.
 * The program will detect changes in the entropy of the files.
 * The program should never exceed 100 MB of memory in use.
 
-🛠️ Usage
+## 🛠️ Usage
 Run the program
 
 ```
@@ -24,5 +24,5 @@ python iron_dome.py
 Modify the critical zone: create folders or files, move location, delete files...
 Lock irondome.log and check if the reports are written correctly.
 
-💡 Examples
+## 💡 Examples
 ![Logs](/iron_dome/logs.PNG)
