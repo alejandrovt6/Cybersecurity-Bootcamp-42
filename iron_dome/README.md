@@ -25,4 +25,4 @@ Modify the critical zone: create folders or files, move location, delete files..
 Lock irondome.log and check if the reports are written correctly.
 
 💡 Examples
-![Logs](logs.png)
+![Logs](/iron_dome/logs.PNG)
